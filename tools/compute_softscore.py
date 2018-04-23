@@ -78,7 +78,16 @@ punct = [';', r"/", '[', ']', '"', '{', '}',
 
 
 def get_score(occurences):
-    return min(1., occurences/3.)
+    if occurences == 0:
+        return 0
+    elif occurences == 1:
+        return 0.3
+    elif occurences == 2:
+        return 0.6
+    elif occurences == 3:
+        return 0.9
+    else:
+        return 1
 
 
 def process_punctuation(inText):
